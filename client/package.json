@@ -1,0 +1,30 @@
+{
+	"name": "kuskus-kusto-language-server-client",
+	"description": "VSCode part of the Kuskus Kusto Language Server",
+	"version": "1.0.0",
+	"publisher": "rosshamish",
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/rosshamish/kuskus",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rosshamish/kuskus"
+	},
+	"bugs": {
+		"url": "https://github.com/rosshamish/kuskus/issues"
+	},
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"scripts": {
+		"update-vscode": "vscode-install",
+		"postinstall": "vscode-install"
+	},
+	"dependencies": {
+		"clipboardy": "^2.1.0",
+		"open": "^6.4.0",
+		"vscode-languageclient": "^4.1.4"
+	},
+	"devDependencies": {
+		"vscode": "^1.1.37"
+	}
+}
