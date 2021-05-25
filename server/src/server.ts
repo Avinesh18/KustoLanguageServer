@@ -26,6 +26,8 @@ import { getSymbolsOnCluster, getSymbolsOnTable } from './kustoSymbols';
 import { formatCodeScript } from './kustoFormat';
 import { getVSCodeCompletionItemsAtPosition } from './kustoCompletion';
 
+//Test comment
+
 // Create a connection for the server. The connection uses Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
 let connection = createConnection(ProposedFeatures.all);
