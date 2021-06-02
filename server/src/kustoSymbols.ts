@@ -1,8 +1,9 @@
 /// <reference path="./typings/refs.d.ts" />
-/// <reference path="../node_modules/@kusto/language-service-next/Kusto.Language.Bridge.d.ts" />
+//// <reference path="../node_modules/@kusto/language-service-next/Kusto.Language.Bridge.d.ts" />
+/// <reference path = "../../kql_bridge/Kusto.Language.Bridge.d.ts" />
 /// <reference path="./typings/MissingFromBridge.d.ts" />
 import './bridge.min';
-import './Kusto.Language.Bridge.min';
+import './Kusto.Language.Bridge';
 
 interface DatabaseMetadata { DatabaseName:string, PrettyName:string };
 interface TableMetadata { TableName:string, DatabaseName:string, Folder:string, DocString:string };
@@ -31,7 +32,7 @@ export async function getSymbolsOnTable(kustoClient: any, defaultDatabaseName: s
 	const tableSchema = await getTableSchema(kustoClient, defaultDatabaseName, tableName);
 	const columns = getTableColumns(tableSchema);
 	const newTable = new Kusto.Language.Symbols.TableSymbol.$ctor3(tableName, columns);
-	return globalState.WithDatabase(globalState.Database.AddSymbols([newTable]));
+	return globalState.WithDatabase(globalState.Database.AddMembers([newTable]));
 }
 
 function getTableColumns(tableSchemas: TableSchema): Kusto.Language.Symbols.ColumnSymbol[] {
@@ -41,7 +42,7 @@ function getTableColumns(tableSchemas: TableSchema): Kusto.Language.Symbols.Colu
 	let orderedColumns : ColumnInfo[] = schema.OrderedColumns;
 
 	orderedColumns.forEach(column => {
-		columns.push(new Kusto.Language.Symbols.ColumnSymbol(column.Name, getTypeSymbol(column.CslType)));
+		columns.push(new Kusto.Language.Symbols.ColumnSymbol(column.Name, getTypeSymbol(column.CslType), "" , false));
 	});
 
 	return columns;

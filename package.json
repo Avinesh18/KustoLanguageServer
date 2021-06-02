@@ -57,7 +57,7 @@
                 "kuskusLanguageServer.diagnosticsEnabled": {
                     "scope": "resource",
                     "type": "boolean",
-                    "default": false,
+                    "default": true,
                     "description": "Whether diagnostics are enabled or not (red squiggly underlines, Problems tab)"
                 }
             }

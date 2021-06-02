@@ -1,8 +1,10 @@
-/// <reference path="../node_modules/@kusto/language-service-next/Kusto.Language.Bridge.d.ts" />
+
+//// <reference path="../node_modules/@kusto/language-service-next/Kusto.Language.Bridge.d.ts" />
+/// <reference path = "../../kql_bridge/Kusto.Language.Bridge.d.ts" />
 /// <reference path="./typings/MissingFromBridge.d.ts" />
 /// <reference path="./typings/refs.d.ts" />
 import './bridge.min';
-import './Kusto.Language.Bridge.min';
+import './Kusto.Language.Bridge';
 
 import { CompletionItemKind, CompletionItem } from 'vscode-languageserver';
 
@@ -38,14 +40,14 @@ function _getVSCodeCompletionItemKind(completionItem: Kusto.Language.Editor.Comp
             return CompletionItemKind.Enum;
         case Kusto.Language.Editor.CompletionKind.Column:
             return CompletionItemKind.EnumMember;
-        case Kusto.Language.Editor.CompletionKind.ScalarFunction:
-        case Kusto.Language.Editor.CompletionKind.TabularFunction:
+        /*case Kusto.Language.Editor.CompletionKind.ScalarFunction:
+        case Kusto.Language.Editor.CompletionKind.TabularFunction:*/
         case Kusto.Language.Editor.CompletionKind.AggregateFunction:
             return CompletionItemKind.Function;
         case Kusto.Language.Editor.CompletionKind.Parameter:
             return CompletionItemKind.TypeParameter;
-        case Kusto.Language.Editor.CompletionKind.Literal:
-            return CompletionItemKind.Constant;
+        /*case Kusto.Language.Editor.CompletionKind.Literal:
+            return CompletionItemKind.Constant;*/
         case Kusto.Language.Editor.CompletionKind.Variable:
         case Kusto.Language.Editor.CompletionKind.Identifier:
             return CompletionItemKind.Variable;
