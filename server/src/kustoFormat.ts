@@ -1,8 +1,10 @@
-/// <reference path="../node_modules/@kusto/language-service-next/Kusto.Language.Bridge.d.ts" />
+
+//// <reference path="../node_modules/@kusto/language-service-next/Kusto.Language.Bridge.d.ts" />
+/// <reference path = "../../kql_bridge/Kusto.Language.Bridge.d.ts" />
 /// <reference path="./typings/MissingFromBridge.d.ts" />
 /// <reference path="./typings/refs.d.ts" />
 import './bridge.min';
-import './Kusto.Language.Bridge.min';
+import './Kusto.Language.Bridge';
 
 export function formatCodeScript(kustoCodeScript: Kusto.Language.Editor.CodeScript): string {
 	let formattedBlocks: string[] = [];

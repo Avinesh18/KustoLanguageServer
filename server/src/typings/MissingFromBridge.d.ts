@@ -21,8 +21,8 @@ declare module System.Collections.Generic {
 
     export interface IReadOnlyDictionary$2<TKey, TValue> {
         get(key: TKey): TValue;
-        Keys: ICollection$1<TKey>;
-        Values: ICollection$1<TValue>;
+        Keys: IEnumerable$1<TKey>;
+        Values: IEnumerable$1<TValue>;
         Count: number;
         containsKey(key: TKey): boolean;
         tryGetValue(key: TKey, value: { v: TValue }): boolean;
